@@ -1,0 +1,112 @@
+{
+
+	"InsuredList": [
+		
+		{
+			"insuredId": "1234567890",
+			"insuredName": "Jane Customer",
+			"insuredDob": "12/21/1984",
+			"productCov": "Coverage A",
+			"originalPremAmt": 200,
+			"originalPremCurr": "USD",
+			"uwClass": "UWClassA",
+			"uwRating": "UWRatingD",
+			"uwStatus": "UWStatusB"
+		},
+		{
+			"insuredId": "2345678901",
+			"insuredName": "Joe Customer",
+			"insuredDob": "06/05/1972",
+			"productCov": "Coverage B",
+			"originalPremAmt": 150,
+			"originalPremCurr": "USD",
+			"uwClass": "UWClassC",
+			"uwRating": "UWRatingB",
+			"uwStatus": "UWStatusD"
+		}
+		
+	],
+	
+	"InsuredRequirements": [
+		
+		{
+			"insuredID": "1234567890",
+			"insuredName": "Jane Customer",
+			"uwRequirement": "Blood Test",
+			"requestDate": "11/05/2018",
+			"receivedDate": "11/15/2018",
+			"waived": "No",
+			"documentId": "UW123456711",
+			"note": "This is note 1"
+		},
+		{
+		"insuredID": "1234567890",
+			"insuredName": "Jane Customer",
+			"uwRequirement": "Urine Test",
+			"requestDate": "11/05/2018",
+			"receivedDate": "",
+			"waived": "No",
+			"documentId": "",
+			"note": ""
+		}
+		
+	],
+	
+	"UWClasses": [
+		{
+			"uwClassId": "UWClassA",
+			"uwClassTxt": "Class A"
+		},
+		{
+			"uwClassId": "UWClassB",
+			"uwClassTxt": "Class B"
+		},
+		{
+			"uwClassId": "UWClassC",
+			"uwClassTxt": "Class C"
+		},
+		{
+			"uwClassId": "UWClassD",
+			"uwClassTxt": "Class D"
+		}
+	],
+	
+	"UWRatings": [
+		{
+			"uwRatingId": "UWRatingA",
+			"uwRatingTxt": "Rating A"
+		},
+		{
+			"uwRatingId": "UWRatingB",
+			"uwRatingTxt": "Rating B"
+		},
+		{
+			"uwRatingId": "UWRatingC",
+			"uwRatingTxt": "Rating C"
+		},
+		{
+			"uwRatingId": "UWRatingD",
+			"uwRatingTxt": "Rating D"
+		}
+	],
+	
+	"UWStatuses": [
+		{
+			"uwStatusId": "UWStatusA",
+			"uwStatusTxt": "Status A"
+		},
+		{
+			"uwStatusId": "UWStatusB",
+			"uwStatusTxt": "Status B"
+		},
+		{
+			"uwStatusId": "UWStatusC",
+			"uwStatusTxt": "Status C"
+		},
+		{
+			"uwStatusId": "UWStatusD",
+			"uwStatusTxt": "Status D"
+		}
+	]
+	
+}

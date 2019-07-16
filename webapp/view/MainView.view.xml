@@ -1,0 +1,217 @@
+<mvc:View controllerName="underwritingWorkbenchunderwritingWorkbench.controller.MainView" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:t="sap.ui.table"  xmlns:c="sap.ui.core" xmlns:u="sap.ui.unified">
+	<App>
+		<pages>
+			<Page title="{i18n>title}">
+				<content>
+					<HBox class="padding">
+						<VBox width="5%" ></VBox>
+						<VBox width="90%" justifyContent="Start">
+							<HBox class="margin">
+								<VBox width="50%">
+									<Label text="Policy No" labelFor="policyNo"/>
+									<Input
+										id="policyNo"
+										type="Text"
+										width="50%"
+										value="23456789012"
+										placeholder="Enter Policy Number ..." />
+									<Hbox class="textLine">
+										<Label text="Policy Effective Date:" class="boldedLabel" />
+										<Text
+											id = "txtPolicyEffDat"
+											text = "02/11/2017" />
+									</Hbox>
+									<Hbox class="textLine">
+										<Label text="Product:" class="boldedLabel" />
+										<Text
+											id = "txtProduct"
+											text = "Gorup Accident Expense" />
+									</Hbox>
+									<Hbox class="textLine">
+										<Label text="Master Policy Number:" class="boldedLabel" />
+										<Text
+											id = "txtMasterPolNo"
+											text = "7890123456" />
+									</Hbox>
+								</VBox>
+								
+								<VBox width="50%">
+									<Hbox class="textLine">
+										<Label text="Agent:" class="boldedLabel" />
+										<Text
+											id = "txtAgentTxt"
+											text = "Agent Jane Doe" />
+									</Hbox>
+									<Hbox class="textLine">
+										<Label text="Agend ID:" class="boldedLabel" />
+										<Text
+											id = "txtAgentId"
+											text = "123456" />
+									</Hbox>
+									<Hbox class="textLine">
+										<Label text="Agency:" class="boldedLabel" />
+										<Text
+											id = "txtAgencyTxt"
+											text = "Agency AA" />
+									</Hbox>
+									<Hbox class="textLine">
+										<Label text="Agency ID:" class="boldedLabel" />
+										<Text
+											id = "txtAgencyID"
+											text = "8776543" />
+									</Hbox>
+									<Hbox class="textLine">
+										<Button type="Default" press="msgAgent" text="Message Agent" icon="sap-icon://email" tooltip="Send Message to the Agent" class="buttonMargin" />
+									</Hbox>
+								</VBox>
+								
+							</HBox>
+							<HBox justifyContent="SpaceBetween">
+								<VBox alignContent="Center">
+									<t:Table
+										rows="{myModel>/InsuredList}"
+										selectionMode="Single"
+										visibleRowCountMode="Auto"
+										rowSelectionChange="insuredSelect"
+										paste="onPaste">
+										<t:columns>
+											<t:Column>
+												<Label text="Insured ID" />
+												<t:template>
+													<Text text="{myModel>insuredId}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Insured" />
+												<t:template>
+													<Text text="{insuredName}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Date of Birth" />
+												<t:template>
+													<Text text="{insuredDob}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Product/Coverage" />
+												<t:template>
+													<Text text="{productCov}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Original Premium" />
+												<t:template>
+													<u:Currency value="{originalPremAmt}" currency="{originalPremCurr}"/>
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="UW Class" />
+												<t:template>
+													<Select selectedKey="{uwClass}" items="{/UWClasses}" width="100%">
+														<c:Item text="{uwClassTxt}" key="{uwClassId}"/>
+													</Select>
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="UW Rating" />
+												<t:template>
+													<Select selectedKey="{uwRating}" items="{/UWRatings}" width="100%">
+														<c:Item text="{uwRatingTxt}" key="{uwRatingId}"/>
+													</Select>
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="New Premium" />
+												<t:template>
+													<u:Currency value="0" currency="USD"/>
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="UW Status" />
+												<t:template>
+													<Select selectedKey="{uwStatus}" items="{/UWStatuses}" width="100%">
+														<c:Item text="{uwStatusTxt}" key="{uwStatusId}"/>
+													</Select>
+												</t:template>
+											</t:Column>
+										</t:columns>
+									</t:Table>
+									<Hbox justifyContent="End" width="100%" class="margin" >
+										<Button type="Default" text="Update" icon="sap-icon://refresh" tooltip="Update premiums" />	
+									</Hbox>
+								</VBox>
+							</HBox>
+							<HBox justifyContent="SpaceBetween">
+								<VBox alignContent="Center">
+									<t:Table
+										rows="{/InsuredRequirements}"
+										selectionMode="Single"
+										visibleRowCountMode="Auto"
+										paste="onPaste">
+										<t:columns>
+											<t:Column>
+												<Label text="Insured ID" />
+												<t:template>
+													<Text text="{insuredID}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Insured" />
+												<t:template>
+													<Text text="{insuredName}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="UW Requirement" />
+												<t:template>
+													<Text text="{uwRequirement}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Request Date" />
+												<t:template>
+													<Text text="{requestDate}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Received Date" />
+												<t:template>
+													<Text text="{ path:'receivedDate', formatter:'.formatter.formatRecDate' }" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Waived" />
+												<t:template>
+													<Text text="{waived}" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Document ID" />
+												<t:template>
+													<Text text="{ path:'documentId', formatter:'.formatter.formatDocId' }" wrapping="false" />
+												</t:template>
+											</t:Column>
+											<t:Column>
+												<Label text="Note" />
+												<t:template>
+													<Text text="{ path:'note', formatter:'.formatter.formatNote' }" wrapping="false" />
+												</t:template>
+											</t:Column>
+										</t:columns>
+									</t:Table>
+									<Hbox justifyContent="End" width="100%" class="margin" >
+										<Button type="Default" press="addRequirement" text="Add Requirement" icon="sap-icon://add" tooltip="Add Requirement" class="buttonMargin" />	
+										<Button type="Default" press="updateRequirement" text="Update" icon="sap-icon://refresh" tooltip="Update Requirements" />	
+									</Hbox>
+								</VBox>
+							</HBox>
+						</VBox>
+						<VBox width="5%" ></VBox>
+					</HBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

@@ -1,0 +1,18 @@
+/* Enter your custom styles here */
+.margin {
+	margin: 10px 0px;
+}
+.buttonMargin {
+	margin-right: 10px;
+}
+.linkText {
+	color: #2EB7F3;
+	text-decoration: underline;
+}
+.boldedLabel {
+	font-weight: bold;
+	margin-right: 7px;
+}
+.textLine {
+	margin: 5px 0px;
+}
